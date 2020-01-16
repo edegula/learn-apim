@@ -1,59 +1,54 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <TargetEndPoint>
-	<name>default</name>
-	<url>http://mocktarget.apigee.net</url>
-	<provider_id>NONE</provider_id>
-	<isDefault>true</isDefault>
-	<properties/>
-	<faultRules>
-		<faultRule>
-			<name>BadParam-X"</name>
-			<condition>(queryparam.X Matches "true")</condition>
-			<steps>
-				<step>
-					<policy_name>CatchBadParam-X</policy_name>
-					<condition> </condition>
-					<sequence>1</sequence>
-				</step>
-			</steps>
-		</faultRule>
-		<faultRule>
-			<name>BadParam-Y"</name>
-			<condition>(queryparam.Y Matches "true")</condition>
-			<steps>
-				<step>
-					<policy_name>CatchBadParam-Y</policy_name>
-					<condition> </condition>
-					<sequence>1</sequence>
-				</step>
-			</steps>
-		</faultRule>		
-		<faultRule>
-			<name>BadParam-Z"</name>
-			<condition>(queryparam.Z Matches "true")</condition>
-			<steps>
-				<step>
-					<policy_name>CatchBadParam-Z</policy_name>
-					<condition> </condition>
-					<sequence>1</sequence>
-				</step>
-			</steps>
-		</faultRule>		
-	</faultRules>
-	<preFlow>
-		<name>PreFlow</name>
-	</preFlow>
-	<postFlow>
-		<name>PostFlow</name>
-		<response>
-			<steps>
+    <name>default</name>
+    <url>http://mocktarget.apigee.net</url>
+    <provider_id>NONE</provider_id>
+    <isDefault>true</isDefault>
+    <properties/>
+    <faultRules>
+        <faultRule>
+            <name>BadParam-X"</name>
+            <condition>(queryparam.X Matches "true")</condition>
+            <steps>
                 <step>
-                    <policy_name>ThrowError</policy_name>
-                    <condition>(queryparam.X Matches "true" || queryparam.Y Matches "true" || queryparam.Z Matches "true")</condition>
+                    <policy_name>CatchBadParam-X</policy_name>
+                    <condition> </condition>
                     <sequence>1</sequence>
                 </step>
-			</steps>
-		</response>
-	</postFlow>
-	<conditionalFlows/>
+            </steps>
+        </faultRule>
+        <faultRule>
+            <name>BadParam-Y"</name>
+            <condition>(queryparam.Y Matches "true")</condition>
+            <steps>
+                <step>
+                    <policy_name>CatchBadParam-Y</policy_name>
+                    <condition> </condition>
+                    <sequence>1</sequence>
+                </step>
+            </steps>
+        </faultRule>
+        <faultRule>
+            <name>BadParam-Z"</name>
+            <condition>(queryparam.Z Matches "true")</condition>
+            <steps>
+                <step>
+                    <policy_name>CatchBadParam-Z</policy_name>
+                    <condition> </condition>
+                    <sequence>1</sequence>
+                </step>
+            </steps>
+        </faultRule>
+    </faultRules>
+    <preFlow>
+        <name>PreFlow</name>
+    </preFlow>
+    <postFlow>
+        <name>PostFlow</name>
+        <response>
+            <isRequest>true</isRequest>
+            <steps/>
+        </response>
+    </postFlow>
+    <conditionalFlows/>
 </TargetEndPoint>
