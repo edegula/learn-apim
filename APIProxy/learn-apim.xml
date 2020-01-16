@@ -21,10 +21,12 @@
         <policy type="ResponseCache">ResponseCache</policy>
         <policy type="ResponseCache">ResponseCacheOut</policy>
         <policy type="AssignMessage">SetResponseHeaders</policy>
+        <policy type="AssignMessage">AssignCustomHeaders</policy>
         <policy type="AssignMessage">CatchBadParam-C</policy>
         <policy type="AssignMessage">CatchBadParam-Y</policy>
         <policy type="AssignMessage">CatchBadParam-A</policy>
         <policy type="AssignMessage">CatchBadParam-B</policy>
+        <policy type="ExtractVariable">ParseJsonResponse</policy>
         <policy type="AssignMessage">SetFlowVariables</policy>
         <policy type="VerifyAPIKey">checkAPIKey</policy>
         <policy type="AssignMessage">RemoveAPIKey</policy>

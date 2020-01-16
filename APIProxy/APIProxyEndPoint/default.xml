@@ -97,14 +97,19 @@
             <isRequest>false</isRequest>
             <steps>
                 <step>
-                    <policy_name>SetResponseHeaders</policy_name>
+                    <policy_name>ResponseCache</policy_name>
+                    <condition> </condition>
+                    <sequence>1</sequence>
+                </step>
+                <step>
+                    <policy_name>ParseJsonResponse</policy_name>
                     <condition> </condition>
                     <sequence>2</sequence>
                 </step>
                 <step>
-                    <policy_name>ResponseCache</policy_name>
+                    <policy_name>AssignCustomHeaders</policy_name>
                     <condition> </condition>
-                    <sequence>1</sequence>
+                    <sequence>3</sequence>
                 </step>
             </steps>
         </response>
