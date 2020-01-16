@@ -20,6 +20,7 @@
     <policies>
         <policy type="ResponseCache">ResponseCache</policy>
         <policy type="ResponseCache">ResponseCacheOut</policy>
+        <policy type="AssignMessage">SetResponseHeaders</policy>
         <policy type="AssignMessage">CatchBadParam-C</policy>
         <policy type="AssignMessage">CatchBadParam-Y</policy>
         <policy type="AssignMessage">CatchBadParam-A</policy>

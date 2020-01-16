@@ -97,6 +97,11 @@
             <isRequest>false</isRequest>
             <steps>
                 <step>
+                    <policy_name>SetResponseHeaders</policy_name>
+                    <condition> </condition>
+                    <sequence>2</sequence>
+                </step>
+                <step>
                     <policy_name>ResponseCache</policy_name>
                     <condition> </condition>
                     <sequence>1</sequence>
