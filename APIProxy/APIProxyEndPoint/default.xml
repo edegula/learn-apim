@@ -101,18 +101,30 @@
                     <condition> </condition>
                     <sequence>1</sequence>
                 </step>
-                <step>
-                    <policy_name>ParseJsonResponse</policy_name>
-                    <condition> </condition>
-                    <sequence>2</sequence>
-                </step>
-                <step>
-                    <policy_name>AssignCustomHeaders</policy_name>
-                    <condition> </condition>
-                    <sequence>3</sequence>
-                </step>
             </steps>
         </response>
     </postFlow>
-    <conditionalFlows/>
+    <conditionalFlows>
+        <conditionalFlow>
+            <name>HandleHeaders</name>
+            <response>
+                <isRequest>true</isRequest>
+                <steps>
+                    <step>
+                        <policy_name>ParseJsonResponse</policy_name>
+                        <condition> </condition>
+                        <sequence>1</sequence>
+                    </step>
+                    <step>
+                        <policy_name>AssignCustomHeaders</policy_name>
+                        <condition> </condition>
+                        <sequence>2</sequence>
+                    </step>
+                </steps>
+            </response>
+            <conditions> </conditions>
+            <readOnly>false</readOnly>
+            <sequence>1</sequence>
+        </conditionalFlow>
+    </conditionalFlows>
 </ProxyEndPoint>
