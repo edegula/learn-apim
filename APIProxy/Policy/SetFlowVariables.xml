@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<AssignMessage async="false" continueOnError="false" enabled="true" xmlns='http://www.sap.com/apimgmt'>
+    <AssignVariable>
+        <Name>queryparam.X</Name>
+        <Ref>request.queryparam.X</Ref>
+    </AssignVariable>
+    <AssignVariable>
+        <Name>queryparam.Y</Name>
+        <Ref>request.queryparam.Y</Ref>
+    </AssignVariable>
+    <AssignVariable>
+        <Name>queryparam.Z</Name>
+        <Ref>request.queryparam.Z</Ref>
+    </AssignVariable>
+    <IgnoreUnresolvedVariables>true</IgnoreUnresolvedVariables>
+	<AssignTo transport="http" createNew="false"></AssignTo>
+</AssignMessage>

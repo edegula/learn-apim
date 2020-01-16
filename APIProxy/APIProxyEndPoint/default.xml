@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ProxyEndPoint default="true">
+    <name>default</name>
+    <base_path>/v1/learn-apim</base_path>
+    <properties/>
+    <routeRules>
+        <routeRule>
+            <name>default</name>
+            <targetEndPointName>default</targetEndPointName>
+            <sequence>1</sequence>
+            <faultRules/>
+        </routeRule>
+    </routeRules>
+    <faultRules>
+		<faultRule>
+            <name>InvalidApiKey</name>
+            <condition>(fault.name = "InvalidApiKey")</condition>
+            <steps>
+                <step>
+                    <policy_name>InvalidApiKeyMessage</policy_name>
+                    <condition> </condition>
+                    <sequence>1</sequence>
+                </step>
+            </steps>
+        </faultRule>
+		<faultRule>
+            <name>FailedToResolveAPIKey</name>
+            <condition>(fault.name = "FailedToResolveAPIKey")</condition>
+            <steps>
+                <step>
+                    <policy_name>FailedToResolveAPIKeyMessage</policy_name>
+                    <condition> </condition>
+                    <sequence>1</sequence>
+                </step>
+            </steps>
+        </faultRule>
+		<faultRule>
+            <name>BadParam-A</name>
+            <condition>(request.queryparam.A Matches "true")</condition>
+            <steps>
+                <step>
+                    <policy_name>CatchBadParam-A</policy_name>
+                    <condition> </condition>
+                    <sequence>1</sequence>
+                </step>
+            </steps>
+        </faultRule>
+		<faultRule>
+            <name>BadParam-B</name>
+            <condition>(request.queryparam.B Matches "true")</condition>
+            <steps>
+                <step>
+                    <policy_name>CatchBadParam-B</policy_name>
+                    <condition> </condition>
+                    <sequence>1</sequence>
+                </step>
+            </steps>
+        </faultRule>
+		<faultRule>
+            <name>BadParam-C</name>
+            <condition>(request.queryparam.C Matches "true")</condition>
+            <steps>
+                <step>
+                    <policy_name>CatchBadParam-C</policy_name>
+                    <condition> </condition>
+                    <sequence>1</sequence>
+                </step>
+            </steps>
+        </faultRule>
+	</faultRules>
+    <preFlow>
+        <name>PreFlow</name>
+        <request>
+            <isRequest>true</isRequest>
+            <steps>
+                <step>
+                    <policy_name>checkAPIKey</policy_name>
+                    <condition> </condition>
+                    <sequence>1</sequence>
+                </step>
+                <step>
+                    <policy_name>RemoveAPIKey</policy_name>
+                    <condition> </condition>
+                    <sequence>2</sequence>
+                </step>
+                <step>
+                    <policy_name>SetFlowVariables</policy_name>
+                    <condition> </condition>
+                    <sequence>3</sequence>
+                </step>				
+                <step>
+                    <policy_name>ThrowError</policy_name>
+                    <condition>(request.queryparam.A Matches "true" || request.queryparam.B Matches "true" || request.queryparam.C Matches "true")</condition>
+                    <sequence>2</sequence>
+                </step>				
+            </steps>
+        </request>
+    </preFlow>
+    <postFlow>
+        <name>PostFlow</name>
+    </postFlow>
+    <conditionalFlows/>
+</ProxyEndPoint>

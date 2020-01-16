@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<RaiseFault async="false" continueOnError="false" enabled="true" xmlns='http://www.sap.com/apimgmt'>
+    <FaultResponse>
+        <Set>
+            <Payload>{"fault":{"faultstring":"Hello from Learn Edge! Raising fault. Fault name : ThrowError","detail":{"errorcode":"messaging.runtime.RaiseFault"}}}</Payload>
+            <StatusCode>500</StatusCode>
+            <ReasonPhrase>This is a fake error.</ReasonPhrase>
+        </Set>
+    </FaultResponse>
+    <IgnoreUnresolvedVariables>true</IgnoreUnresolvedVariables>
+</RaiseFault>

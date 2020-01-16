@@ -1,0 +1,12 @@
+<!-- This policy can be used to create or modify the standard HTTP request and response messages -->
+<AssignMessage async="false" continueOnError="false" enabled="true" xmlns='http://www.sap.com/apimgmt'>
+    <!-- Avoids passing unnecessary headers to the targent endpoint -->
+    <Remove>
+        <Headers>
+            <Header name="apikey"/>
+            <Header name="postman-token"/>
+        </Headers>
+    </Remove>
+	<IgnoreUnresolvedVariables>false</IgnoreUnresolvedVariables>
+	<AssignTo type="request" transport="http" createNew="false"/>
+</AssignMessage>

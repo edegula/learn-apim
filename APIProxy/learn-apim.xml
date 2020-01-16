@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<APIProxy>
+    <name>learn-apim</name>
+    <title>learn-apim</title>
+    <description> </description>
+    <service_code>REST</service_code>
+    <life_cycle>
+        <changed_by>S0013963210</changed_by>
+        <created_by>S0013963210</created_by>
+    </life_cycle>
+    <proxyEndPoints>
+        <proxyEndPoint>
+            <proxyEndPointName>default</proxyEndPointName>
+            <apiResourceName>SWAGGER_JSON</apiResourceName>
+        </proxyEndPoint>
+    </proxyEndPoints>
+    <targetEndPoints>
+        <targetEndPoint>default</targetEndPoint>
+    </targetEndPoints>
+    <policies>
+        <policy type="VerifyAPIKey">checkAPIKey</policy>
+        <policy type="RaiseFault">defaultRaiseFaultPolicy</policy>
+		<policy type="RaiseFault">ThrowError</policy>
+        <policy type="AssignMessage">RemoveAPIKey</policy>
+        <policy type="AssignMessage">InvalidApiKeyMessage</policy>
+		<policy type="AssignMessage">FailedToResolveAPIKeyMessage</policy>
+		<policy type="AssignMessage">CatchBadParam-A</policy>
+		<policy type="AssignMessage">CatchBadParam-B</policy>
+		<policy type="AssignMessage">CatchBadParam-C</policy>
+		<policy type="AssignMessage">CatchBadParam-X</policy>
+		<policy type="AssignMessage">CatchBadParam-Y</policy>
+		<policy type="AssignMessage">CatchBadParam-Z</policy>
+		<policy type="AssignMessage">SetFlowVariables</policy>
+    </policies>
+    <fileResources/>
+</APIProxy>
