@@ -2,7 +2,7 @@
 <APIProxy>
     <name>learn-apim</name>
     <title>learn-apim</title>
-    <description>&lt;p&gt;&lt;/p&gt;</description>
+    <description> </description>
     <service_code>REST</service_code>
     <life_cycle>
         <changed_by>S0013963210</changed_by>
@@ -44,6 +44,7 @@
         <policy type="AssignMessage">AssignDirectionsPayload</policy>
         <policy type="ExtractVariable">ExtractCompanyId</policy>
         <policy type="ExtractVariable">ExtractDirectionInfo</policy>
+        <policy type="Quota">EnforceQuota</policy>
     </policies>
     <fileResources/>
 </APIProxy>
