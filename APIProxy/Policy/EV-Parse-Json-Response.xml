@@ -1,0 +1,21 @@
+<!-- Extract content from the request or response messages, including headers, URI paths, JSON/XML payloads, form parameters, and query parameters -->
+<ExtractVariables async="true" continueOnError="false" enabled="true" xmlns='http://www.sap.com/apimgmt'>
+    <IgnoreUnresolvedVariables>true</IgnoreUnresolvedVariables>
+    <JSONPayload>
+        <Variable name="mp_pod_name_val">
+            <JSONPath>$.[0].name</JSONPath>
+        </Variable>
+        <Variable name="mp_pod_names">
+            <JSONPath>$.[*].name</JSONPath>
+        </Variable>
+        <Variable name="mp_pod_regions">
+            <JSONPath>$.[*].region</JSONPath>
+        </Variable>
+        <Variable name="desired_mp_pod_name">
+            <JSONPath>$.[?(@.region=='{request.queryparam.region}')].name</JSONPath>
+        </Variable>
+        <Variable name="desired_mp_pod_name_val">
+            <JSONPath>$.[?(@.region=='{request.queryparam.region}')].name[0]</JSONPath>
+        </Variable>
+    </JSONPayload>
+</ExtractVariables> 

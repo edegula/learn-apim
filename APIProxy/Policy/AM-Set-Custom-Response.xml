@@ -1,0 +1,19 @@
+<!-- This policy can be used to create or modify the standard HTTP request and response messages -->
+<AssignMessage async="false" continueOnError="false" enabled="true" xmlns='http://www.sap.com/apimgmt'>
+     <Set>
+        <Headers>
+            <Header name="x-first-pod-name-as-string">{mp_pod_name_val}</Header>
+            <Header name="x-all-pod-names-as-array">{mp_pod_names}</Header>
+            <Header name="x-all-region-names-as-array">{mp_pod_regions}</Header>
+            <Header name="x-queried-pod-name-as-array">{desired_mp_pod_name}</Header>
+            <Header name="x-queried-pod-name-as-string">{desired_mp_pod_name_val}</Header>
+        </Headers>
+    </Set>
+    <Set>
+        <Payload contentType="application/json" variablePrefix="@" variableSuffix="#">
+	        {"name":"@request.queryparam.region#", "region":"@desired_mp_pod_name_val#"}
+	    </Payload>
+    </Set>
+    <IgnoreUnresolvedVariables>true</IgnoreUnresolvedVariables>
+    <AssignTo type="response" transport="http" createNew="false"/>
+</AssignMessage>

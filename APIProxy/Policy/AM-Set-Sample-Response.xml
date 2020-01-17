@@ -1,0 +1,17 @@
+<!-- This policy can be used to create or modify the standard HTTP request and response messages -->
+<AssignMessage async="false" continueOnError="false" enabled="true" xmlns='http://www.sap.com/apimgmt'>
+    <Set>
+        <Payload contentType="application/json">
+      [ {
+		  "name" : "pod1",
+		  "region" : "us-east-1"
+		}, {
+		  "name" : "pod2",
+		  "region" : "us-west-2"
+	 	} 
+	  ]
+        </Payload>
+    </Set>
+    <IgnoreUnresolvedVariables>false</IgnoreUnresolvedVariables>
+    <AssignTo type="response" transport="http" createNew="false"/>
+</AssignMessage>

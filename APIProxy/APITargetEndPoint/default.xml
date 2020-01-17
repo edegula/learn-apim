@@ -47,7 +47,28 @@
         <name>PostFlow</name>
         <response>
             <isRequest>true</isRequest>
-            <steps/>
+            <steps>
+                <step>
+                    <policy_name>RegionNotFoundFault</policy_name>
+                    <condition>desired_mp_pod_name_val = ''</condition>
+                    <sequence>4</sequence>
+                </step>
+                <step>
+                    <policy_name>AM-Set-Sample-Response</policy_name>
+                    <condition> </condition>
+                    <sequence>1</sequence>
+                </step>
+                <step>
+                    <policy_name>EV-Parse-Json-Response</policy_name>
+                    <condition> </condition>
+                    <sequence>2</sequence>
+                </step>
+                <step>
+                    <policy_name>AM-Set-Custom-Response</policy_name>
+                    <condition> </condition>
+                    <sequence>3</sequence>
+                </step>
+            </steps>
         </response>
     </postFlow>
     <conditionalFlows/>

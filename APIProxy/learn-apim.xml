@@ -36,6 +36,10 @@
         <policy type="AssignMessage">FailedToResolveAPIKeyMessage</policy>
         <policy type="RaiseFault">ThrowError</policy>
         <policy type="RaiseFault">defaultRaiseFaultPolicy</policy>
+        <policy type="AssignMessage">AM-Set-Custom-Response</policy>
+        <policy type="AssignMessage">AM-Set-Sample-Response</policy>
+        <policy type="ExtractVariable">EV-Parse-Json-Response</policy>
+        <policy type="RaiseFault">RegionNotFoundFault</policy>
     </policies>
     <fileResources/>
 </APIProxy>

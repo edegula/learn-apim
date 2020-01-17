@@ -74,11 +74,6 @@
             <isRequest>true</isRequest>
             <steps>
                 <step>
-                    <policy_name>ResponseCache</policy_name>
-                    <condition> </condition>
-                    <sequence>3</sequence>
-                </step>
-                <step>
                     <policy_name>checkAPIKey</policy_name>
                     <condition> </condition>
                     <sequence>1</sequence>
@@ -95,36 +90,8 @@
         <name>PostFlow</name>
         <response>
             <isRequest>false</isRequest>
-            <steps>
-                <step>
-                    <policy_name>ResponseCache</policy_name>
-                    <condition> </condition>
-                    <sequence>1</sequence>
-                </step>
-            </steps>
+            <steps/>
         </response>
     </postFlow>
-    <conditionalFlows>
-        <conditionalFlow>
-            <name>HandleHeaders</name>
-            <response>
-                <isRequest>true</isRequest>
-                <steps>
-                    <step>
-                        <policy_name>ParseJsonResponse</policy_name>
-                        <condition> </condition>
-                        <sequence>1</sequence>
-                    </step>
-                    <step>
-                        <policy_name>AssignCustomHeaders</policy_name>
-                        <condition> </condition>
-                        <sequence>2</sequence>
-                    </step>
-                </steps>
-            </response>
-            <conditions> </conditions>
-            <readOnly>false</readOnly>
-            <sequence>1</sequence>
-        </conditionalFlow>
-    </conditionalFlows>
+    <conditionalFlows/>
 </ProxyEndPoint>
