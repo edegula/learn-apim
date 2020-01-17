@@ -1,0 +1,14 @@
+<!-- Extract content from the request or response messages, including headers, URI paths, JSON/XML payloads, form parameters, and query parameters -->
+<ExtractVariables async="true" continueOnError="false" enabled="true" xmlns='http://www.sap.com/apimgmt'>
+    <IgnoreUnresolvedVariables>false</IgnoreUnresolvedVariables>
+    <Source clearPayload="false">request.content</Source>
+    <XMLPayload stopPayloadProcessing="false">
+        <Namespaces>
+            <Namespace prefix="S">http://schemas.xmlsoap.org/soap/envelope/</Namespace>
+            <Namespace prefix="ns1">urn:xxxx.xxxx.xxxxx.com</Namespace>
+        </Namespaces>
+        <Variable name="companyId" type="string">
+            <XPath>/S:Envelope/S:Body/ns1:login/ns1:credential/ns1:companyId/text()</XPath>
+        </Variable>
+    </XMLPayload>
+</ExtractVariables> 

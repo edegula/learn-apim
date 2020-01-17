@@ -93,5 +93,58 @@
             <steps/>
         </response>
     </postFlow>
-    <conditionalFlows/>
+    <conditionalFlows>
+        <conditionalFlow>
+            <name>Extract Direction Info</name>
+            <request>
+                <isRequest>true</isRequest>
+                <steps>
+                    <step>
+                        <policy_name>ExtractDirectionInfo</policy_name>
+                        <condition> </condition>
+                        <sequence>1</sequence>
+                    </step>
+                </steps>
+            </request>
+            <response>
+                <isRequest>true</isRequest>
+                <steps>
+                    <step>
+                        <policy_name>AssignDirectionsPayload</policy_name>
+                        <condition> </condition>
+                        <sequence>1</sequence>
+                    </step>
+                </steps>
+            </response>
+            <conditions>(proxy.pathsuffix = "/directions") and (request.verb = "POST")</conditions>
+            <readOnly>false</readOnly>
+            <sequence>1</sequence>
+        </conditionalFlow>
+        <conditionalFlow>
+            <name>Extract Company ID</name>
+            <request>
+                <isRequest>true</isRequest>
+                <steps>
+                    <step>
+                        <policy_name>ExtractCompanyId</policy_name>
+                        <condition> </condition>
+                        <sequence>1</sequence>
+                    </step>
+                </steps>
+            </request>
+            <response>
+                <isRequest>true</isRequest>
+                <steps>
+                    <step>
+                        <policy_name>AssignCompanyIdPayload</policy_name>
+                        <condition> </condition>
+                        <sequence>1</sequence>
+                    </step>
+                </steps>
+            </response>
+            <conditions>(proxy.pathsuffix = "/companyId") and (request.verb = "POST")</conditions>
+            <readOnly>false</readOnly>
+            <sequence>2</sequence>
+        </conditionalFlow>
+    </conditionalFlows>
 </ProxyEndPoint>

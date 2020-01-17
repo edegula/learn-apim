@@ -40,6 +40,10 @@
         <policy type="AssignMessage">AM-Set-Sample-Response</policy>
         <policy type="ExtractVariable">EV-Parse-Json-Response</policy>
         <policy type="RaiseFault">RegionNotFoundFault</policy>
+        <policy type="AssignMessage">AssignCompanyIdPayload</policy>
+        <policy type="AssignMessage">AssignDirectionsPayload</policy>
+        <policy type="ExtractVariable">ExtractCompanyId</policy>
+        <policy type="ExtractVariable">ExtractDirectionInfo</policy>
     </policies>
     <fileResources/>
 </APIProxy>

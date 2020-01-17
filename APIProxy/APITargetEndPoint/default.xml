@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <TargetEndPoint>
     <name>default</name>
-    <url>http://mocktarget.apigee.net</url>
+    <url>http://mocktarget.apigee.net/xml</url>
     <provider_id>NONE</provider_id>
     <isDefault>true</isDefault>
     <properties/>
@@ -47,28 +47,7 @@
         <name>PostFlow</name>
         <response>
             <isRequest>true</isRequest>
-            <steps>
-                <step>
-                    <policy_name>RegionNotFoundFault</policy_name>
-                    <condition>desired_mp_pod_name_val = ''</condition>
-                    <sequence>4</sequence>
-                </step>
-                <step>
-                    <policy_name>AM-Set-Sample-Response</policy_name>
-                    <condition> </condition>
-                    <sequence>1</sequence>
-                </step>
-                <step>
-                    <policy_name>EV-Parse-Json-Response</policy_name>
-                    <condition> </condition>
-                    <sequence>2</sequence>
-                </step>
-                <step>
-                    <policy_name>AM-Set-Custom-Response</policy_name>
-                    <condition> </condition>
-                    <sequence>3</sequence>
-                </step>
-            </steps>
+            <steps/>
         </response>
     </postFlow>
     <conditionalFlows/>
